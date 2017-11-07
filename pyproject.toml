@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=44", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile.setuptools[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.kaitai]
+outputDir = "USBPcapOdinDumper/kaitai"
+
+[tool.kaitai.formats.odin3]
+path = "firmware/odin3.ksy"
+
+[tool.kaitai.formats.pcap]
+path = "network/pcap.ksy"
+
+[tool.kaitai.repo]
+git = "https://github.com/KOLANICH/kaitai_struct_formats.git"
+refspec = "usb_monitors_and_odin"
+update = true
+localPath = "kaitai_struct_formats"

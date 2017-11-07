@@ -1,0 +1,24 @@
+os:
+  - linux
+  - osx
+dist: trusty
+language: python
+python:
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
+  - nightly
+  - pypy3
+  - pypy3-nightly
+before_install:
+  - pip3 install --upgrade setuptools setuptools_scm
+  - pip3 install coveralls
+install:
+  - python setup.py install
+script:
+  - coverage run --source=USBPcapOdinDumper setup.py test
+after_success:
+  - coveralls
+  # - python3 setup.py bdist_wheel
+  # - python3 setup.py sdistz
